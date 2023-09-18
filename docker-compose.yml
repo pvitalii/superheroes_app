@@ -1,0 +1,37 @@
+version: "3"
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ./Dockerfile
+    ports: 
+      - ${BACKEND_PORT}:${BACKEND_PORT}
+    depends_on:
+      - db
+    env_file:
+      - './.env.development'
+    volumes:
+      - ./backend/src:/app/src
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ./Dockerfile
+    environment:
+      - FRONTEND_PORT=${FRONTEND_PORT}
+      - REACT_APP_BACKEND_ORIGIN=${BACKEND_ORIGIN}
+    ports: 
+      - ${FRONTEND_PORT}:${FRONTEND_PORT}
+    volumes:
+      - ./frontend/src:/app/src
+    depends_on:
+      - backend
+  db:
+    container_name: superheroes_postgres
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    ports:
+      - ${DB_PORT}:${DB_PORT}
