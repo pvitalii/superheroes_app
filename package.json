@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:init": "docker compose --env-file=.env.development up --build",
     "start": "docker compose --env-file=.env.development up",
-    "seed:dev": "docker exec messenger-project-backend-1 npx typeorm migration:run -d ./dist/database/typeorm-cli-config.js"
+    "seed:dev": "docker exec superheroes_app-backend-1 npx typeorm migration:run -d ./dist/database/typeorm-cli-config.js"
   },
   "author": "Vitalii Pidhornyi",
   "license": "ISC",
