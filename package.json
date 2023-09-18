@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "superheroes web application",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:init": "docker compose --env-file=.env.development up --build",
+    "start": "docker compose --env-file=.env.development up",
+    "seed:dev": "docker exec messenger-project-backend-1 npx typeorm migration:run -d ./dist/database/typeorm-cli-config.js"
   },
   "author": "Vitalii Pidhornyi",
   "license": "ISC",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
     "eslint": "^8.49.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-config-standard-with-typescript": "^39.0.0",
@@ -16,7 +20,7 @@
     "eslint-plugin-n": "^16.1.0",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react": "^7.27.1",
     "prettier": "3.0.3",
     "typescript": "^5.2.2"
   }
