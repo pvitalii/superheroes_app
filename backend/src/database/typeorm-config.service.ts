@@ -19,8 +19,7 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
       case 'development':
         return {
           ...this.dbConfig,
-          synchronize: true,
-          dropSchema: true
+          synchronize: true
         };
 
       case 'production':
