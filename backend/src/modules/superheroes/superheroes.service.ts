@@ -13,7 +13,7 @@ export class SuperheroesService {
     private imagesService: ImagesService
   ) {}
 
-  findAll(page?: number): Promise<[Superhero[], number]> {
+  findAll(page: number): Promise<[Superhero[], number]> {
     const take = 5;
     const skip = take * (page - 1);
     return this.superheroesRepository.findAndCount({

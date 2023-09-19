@@ -5,7 +5,7 @@
 -   npm run start:init (to build docker images and run containers) 
     or 
     npm run start (if images have been already built)
--   npm run seed:dev
+-   npm run seed:dev (run it after db has initialized and backend has successfully started)
 
 #### Functionality
 
