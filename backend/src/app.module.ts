@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { SuperheroesModule } from './modules/superheroes/superheroes.module';
 import { ImagesModule } from './modules/images/images.module';
@@ -19,8 +17,6 @@ import { SuperpowersModule } from './modules/superpowers/superpowers.module';
     SuperheroesModule,
     ImagesModule,
     SuperpowersModule
-  ],
-  controllers: [AppController],
-  providers: [AppService]
+  ]
 })
 export class AppModule {}
